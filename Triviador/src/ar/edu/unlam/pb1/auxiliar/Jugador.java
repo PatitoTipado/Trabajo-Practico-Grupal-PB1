@@ -1,11 +1,20 @@
-package ar.edu.unlam.pb1.dominio;
+package ar.edu.unlam.pb1.auxiliar;
 
 public class Jugador {
 	private String provinciasEnPoder[] = new String[23];
 	// private String provinciasLimitrofes[];
 	private int puntos; // tropas?
+	private String nombre;
+	private int id;
 
-	public Jugador() {
+	public Jugador(String nombre) {
+		this.nombre = nombre;
+		this.puntos = 1000;
+		this.id++;
+	}
+
+	public String getNombre() {
+		return nombre;
 	}
 
 	public boolean sePuedeAgregarProvincias(String provincia) {
@@ -16,6 +25,7 @@ public class Jugador {
 				provinciasEnPoder[indice] = provincia;
 				encontrado = true;
 			}
+			indice++;
 		}
 		return encontrado;
 	}
@@ -28,4 +38,20 @@ public class Jugador {
 		return puntos;
 	}
 
+	public void ganaPuntos(int cuantoPuntos) {
+		this.puntos += cuantoPuntos;
+	}
+
+	public void pierdePuntos(int cuantoPuntos) {
+		this.puntos -= cuantoPuntos;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Jugador [ puntos=" + puntos + ", nombre=" + nombre + "]";
+	}
 }
