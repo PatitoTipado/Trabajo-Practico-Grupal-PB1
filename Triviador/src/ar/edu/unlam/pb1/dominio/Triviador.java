@@ -9,8 +9,10 @@ public class Triviador {
 			"Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego",
 			"Tucumán" };
 	private Jugador[] jugadores = new Jugador[2];
+	private Integer[] turnosJugadores;
 
 	public Triviador() {
+		this.turnosJugadores = new Integer[jugadores.length];
 	}
 
 	public String[] preguntasProximidad() {
@@ -71,15 +73,32 @@ public class Triviador {
 		return jugadores;
 	}
 
-//	public int leTocaAlOtroJugador() {
-//		jugadores[3] 
-	// 2
-	// 1 o 3
-	// array aux
-	// aux 2 // null -- 1 o 2
-	// ramdon con el valor se fija si es el mas alto y si no lo es se incrementa
-	// osino se decrementa
-	// se repite con
-//	}
+	private void vaciarElArray(Integer[] vaciarTurnos) {
+		for (int i = vaciarTurnos.length; i > 0; i--) {
+			vaciarTurnos[i] = null;
+		}
+	}
+
+	private void invadirTerritorioEnemigo() {
+
+	}
+
+	public int leTocaAlOtroJugador() {
+		int jugadorAlQueLetoca = 0;
+		// lo primero que tuviera que validar, seria que se tenga que vaciar el array
+		if (turnosJugadores[turnosJugadores.length] != null) {
+			vaciarElArray(turnosJugadores);
+		}
+		// 1 == null + idDelJugador (2)
+		// 2 == null id del jugador (1)
+		// 3 == null + 3
+		// 3!= null (3)
+		// array aux
+		// aux 2 // null -- 1 o 2
+		// ramdon con el valor se fija si es el mas alto y si no lo es se incrementa
+		// osino se decrementa
+		// se repite con
+		return jugadorAlQueLetoca;
+	}
 
 }
